@@ -42,7 +42,7 @@ typedef vector<int> vint;
 typedef vector<bool> vbool;
 typedef vector<string> vstring;
 
-enum weightedSysts { NOSYST=0, BTAGUP = 1,BTAGDOWN=2, MISTAGUP=3,MISTAGDOWN=4, PUUP=5, PUDOWN=6, BTAGHIGGSUP=7, BTAGHIGGSDOWN=8, MISTAGHIGGSUP=9, MISTAGHIGGSDOWN=10, MAXSYSTS=11};
+enum weightedSysts { NOSYST=0, BTAGUP = 1,BTAGDOWN=2, MISTAGUP=3,MISTAGDOWN=4, PUUP=5, PUDOWN=6, MISTAGHIGGSUP=7, MISTAGHIGGSDOWN=8, MAXSYSTS=9};
 enum theoSysts {SCALEUP=101,SCALEDOWN=102, NNPDF1=100, NNPDF2=102};
 int wLimit =150;
 
@@ -708,8 +708,6 @@ int main(int argc, char **argv) {
 	systZero.setWeight("mistagDown",1.);
 	systZero.setWeight("puDown",1.);
 	systZero.setWeight("puUp",1.);
-	systZero.setWeight("btagHiggsDown",1.);
-	systZero.setWeight("btagHiggsUp",1.);
 	systZero.setWeight("mistagHiggsDown",1.);
 	systZero.setWeight("mistagHiggsUp",1.);
 	
@@ -724,29 +722,9 @@ int main(int argc, char **argv) {
         systWeights0B0sB[MISTAGDOWN]=1.;
         systWeights0B0sB[PUUP]=1.;
         systWeights0B0sB[PUDOWN]=1.;
-        systWeights0B0sB[BTAGHIGGSUP]=1.;
-        systWeights0B0sB[BTAGHIGGSDOWN]=1.;
 	systWeights0B0sB[MISTAGHIGGSUP]=1.;
 	systWeights0B0sB[MISTAGHIGGSDOWN]=1.;
 	
-	/*syst2B0sB.copySysts(systZero);
-        syst2B0sB.setWeight("btagUp",1.);
-        syst2B0sB.setWeight("btagDown",1.);
-
-        systWeights2B0sB[NOSYST]=1.;
-        systWeights2B0sB[BTAGUP]=1.;
-        systWeights2B0sB[BTAGDOWN]=1.;
-        systWeights2B0sB[MISTAGUP]=1.;
-        systWeights2B0sB[MISTAGDOWN]=1.;
-        systWeights2B0sB[PUUP]=1.;
-        systWeights2B0sB[PUDOWN]=1.;
-        systWeights2B0sB[BTAGHIGGSUP]=1.;
-        systWeights2B0sB[BTAGHIGGSDOWN]=1.;
-        systWeights2B0sB[MISTAGHIGGSUP]=1.;
-        systWeights2B0sB[MISTAGHIGGSDOWN]=1.;
-	*/
-
-	syst1B2sB.copySysts(systZero);
 	syst1B2sB.setWeight("btagUp",1.);
 	syst1B2sB.setWeight("btagDown",1.);
 	
@@ -757,8 +735,6 @@ int main(int argc, char **argv) {
 	systWeights1B2sB[MISTAGDOWN]=1.;
 	systWeights1B2sB[PUUP]=1.;
 	systWeights1B2sB[PUDOWN]=1.;
-	systWeights1B2sB[BTAGHIGGSUP]=1.;
-	systWeights1B2sB[BTAGHIGGSDOWN]=1.;
 	systWeights1B2sB[MISTAGHIGGSUP]=1.;
 	systWeights1B2sB[MISTAGHIGGSDOWN]=1.;
 
@@ -773,8 +749,6 @@ int main(int argc, char **argv) {
 	systWeights1B2sB[MISTAGDOWN]=1.;
 	systWeights1B2sB[PUUP]=1.;
 	systWeights1B2sB[PUDOWN]=1.;
-	systWeights1B2sB[BTAGHIGGSUP]=1.;
-	systWeights1B2sB[BTAGHIGGSDOWN]=1.;
 	systWeights1B2sB[MISTAGHIGGSUP]=1.;
 	systWeights1B2sB[MISTAGHIGGSDOWN]=1.;
 
@@ -785,8 +759,6 @@ int main(int argc, char **argv) {
 	systWeights1B1sB[MISTAGDOWN]=1.;
 	systWeights1B1sB[PUUP]=1.;
 	systWeights1B1sB[PUDOWN]=1.;
-	systWeights1B1sB[BTAGHIGGSUP]=1.;
-	systWeights1B1sB[BTAGHIGGSDOWN]=1.;
 	systWeights1B1sB[MISTAGHIGGSUP]=1.;
 	systWeights1B1sB[MISTAGHIGGSDOWN]=1.;
 
@@ -801,8 +773,6 @@ int main(int argc, char **argv) {
 	systWeights1B1sB[MISTAGDOWN]=1.;
 	systWeights1B1sB[PUUP]=1.;
 	systWeights1B1sB[PUDOWN]=1.;
-	systWeights1B1sB[BTAGHIGGSUP]=1.;
-	systWeights1B1sB[BTAGHIGGSDOWN]=1.;
 	systWeights1B1sB[MISTAGHIGGSUP]=1.;
 	systWeights1B1sB[MISTAGHIGGSDOWN]=1.;
 
@@ -813,8 +783,6 @@ int main(int argc, char **argv) {
 	systWeights1B0sB[MISTAGDOWN]=1.;
 	systWeights1B0sB[PUUP]=1.;
 	systWeights1B0sB[PUDOWN]=1.;
-	systWeights1B0sB[BTAGHIGGSUP]=1.;
-	systWeights1B0sB[BTAGHIGGSDOWN]=1.;
 	systWeights1B0sB[MISTAGHIGGSUP]=1.;
 	systWeights1B0sB[MISTAGHIGGSDOWN]=1.;
 
@@ -829,8 +797,6 @@ int main(int argc, char **argv) {
 	systWeights1B0sB[MISTAGDOWN]=1.;
 	systWeights1B0sB[PUUP]=1.;
 	systWeights1B0sB[PUDOWN]=1.;
-	systWeights1B0sB[BTAGHIGGSUP]=1.;
-	systWeights1B0sB[BTAGHIGGSDOWN]=1.;
 	systWeights1B0sB[MISTAGHIGGSUP]=1.;
 	systWeights1B0sB[MISTAGHIGGSDOWN]=1.;
 	
@@ -849,7 +815,7 @@ int main(int argc, char **argv) {
 	double puUpFact=(LumiWeightsUp_.weight(numTrueInt))/(LumiWeights_.weight(numTrueInt));
 	double puDownFact=(LumiWeightsDown_.weight(numTrueInt))/(LumiWeights_.weight(numTrueInt));
 	
-	if(numTrueInt>75){//it was 49
+	if(numTrueInt>75){
 	  cout << " --> numTrueInt very high!!" << endl;
 	  puUpFact =0;
 	  puDownFact=0;
@@ -862,8 +828,6 @@ int main(int argc, char **argv) {
 	systZero.setWeight("mistagDown",1.);
 	systZero.setWeight("puUp",1.);
 	systZero.setWeight("puDown",1.);
-	systZero.setWeight("btagHiggsDown",1.);
-	systZero.setWeight("btagHiggsUp",1.);
 	systZero.setWeight("mistagHiggsDown",1.);
 	systZero.setWeight("mistagHiggsUp",1.);
 	wcats[0]=1.0;
@@ -887,14 +851,12 @@ int main(int argc, char **argv) {
 	
 	syst1B2sB.copySysts(systZero);
 	syst1B2sB.setWeight(0,bWeight1 * bWeight2_subj);
-	syst1B2sB.setWeight("btagUp",bWeight1BTagUp * bWeight2_subj);
-	syst1B2sB.setWeight("btagDown",bWeight1BTagDown * bWeight2_subj);
+	syst1B2sB.setWeight("btagUp",bWeight1BTagUp * bWeight2BTagUp_subj); 
+	syst1B2sB.setWeight("btagDown",bWeight1BTagDown * bWeight2BTagDown_subj);
 	syst1B2sB.setWeight("mistagUp",bWeight1MisTagUp * bWeight2_subj);
 	syst1B2sB.setWeight("mistagDown",bWeight1MisTagDown* bWeight2_subj);
 	syst1B2sB.setWeight("puUp",bWeight1 * bWeight2_subj * puUpFact);
 	syst1B2sB.setWeight("puDown",bWeight1 * bWeight2_subj * puDownFact);
-	syst1B2sB.setWeight("btagHiggsUp",bWeight1BTagUp_subj * bWeight1 );
-	syst1B2sB.setWeight("btagHiggsDown",bWeight1BTagDown_subj * bWeight1 );
 	syst1B2sB.setWeight("mistagHiggsUp",bWeight1MisTagUp_subj * bWeight1 );
 	syst1B2sB.setWeight("mistagHiggsDown",bWeight1MisTagDown_subj * bWeight1 );
 	
@@ -914,26 +876,22 @@ int main(int argc, char **argv) {
 	
 	systWeights1B2sB[PUUP]= puUpFact * bWeight1 * bWeight2_subj;
 	systWeights1B2sB[PUDOWN]= puDownFact * bWeight1 * bWeight2_subj;
-	systWeights1B2sB[BTAGHIGGSUP]= bWeight2BTagUp_subj * bWeight1 ;
-	systWeights1B2sB[BTAGHIGGSDOWN]= bWeight2BTagDown_subj * bWeight1 ;
 	systWeights1B2sB[MISTAGHIGGSUP]= bWeight2MisTagUp_subj * bWeight1 ;
 	systWeights1B2sB[MISTAGHIGGSDOWN]= bWeight2MisTagDown_subj * bWeight1 ;
 	systWeights1B2sB[NOSYST]=bWeight1*bWeight2_subj;
-	systWeights1B2sB[BTAGUP]=bWeight1BTagUp*bWeight2_subj;
-	systWeights1B2sB[BTAGDOWN]=bWeight1BTagDown*bWeight2_subj;
+	systWeights1B2sB[BTAGUP]=bWeight1BTagUp*bWeight2BTagUp_subj;
+	systWeights1B2sB[BTAGDOWN]=bWeight1BTagDown*bWeight2BTagDown_subj;
 	systWeights1B2sB[MISTAGUP]=bWeight1MisTagUp*bWeight2_subj;
 	systWeights1B2sB[MISTAGDOWN]=bWeight1MisTagDown*bWeight2_subj;
 
 	syst1B1sB.copySysts(systZero);
 	syst1B1sB.setWeight(0,bWeight1 * bWeight1_subj);
-	syst1B1sB.setWeight("btagUp",bWeight1BTagUp * bWeight1_subj);
-	syst1B1sB.setWeight("btagDown",bWeight1BTagDown * bWeight1_subj);
+	syst1B1sB.setWeight("btagUp",bWeight1BTagUp * bWeight1BTagUp_subj);
+	syst1B1sB.setWeight("btagDown",bWeight1BTagDown * bWeight1BTagDown_subj);
 	syst1B1sB.setWeight("mistagUp",bWeight1MisTagUp * bWeight1_subj);
 	syst1B1sB.setWeight("mistagDown",bWeight1MisTagDown * bWeight1_subj);
 	syst1B1sB.setWeight("puUp",bWeight1 * bWeight1_subj * puUpFact);
 	syst1B1sB.setWeight("puDown",bWeight1 * bWeight1_subj * puDownFact);
-	syst1B1sB.setWeight("btagHiggsUp",bWeight1BTagUp_subj * bWeight1);
-	syst1B1sB.setWeight("btagHiggsDown",bWeight1BTagDown_subj * bWeight1);
 	syst1B1sB.setWeight("mistagHiggsUp",bWeight1MisTagUp_subj * bWeight1);
 	syst1B1sB.setWeight("mistagHiggsDown",bWeight1MisTagDown_subj * bWeight1);
 	
@@ -953,13 +911,11 @@ int main(int argc, char **argv) {
 	
 	systWeights1B1sB[PUUP]= puUpFact * bWeight1 * bWeight1_subj;
 	systWeights1B1sB[PUDOWN]= puDownFact * bWeight1 * bWeight1_subj;
-	systWeights1B1sB[BTAGHIGGSUP]= bWeight1BTagUp_subj * bWeight1;
-	systWeights1B1sB[BTAGHIGGSDOWN]= bWeight1BTagDown_subj * bWeight1;
 	systWeights1B1sB[MISTAGHIGGSUP]= bWeight1MisTagUp_subj * bWeight1;
 	systWeights1B1sB[MISTAGHIGGSDOWN]= bWeight1MisTagDown_subj * bWeight1;
 	systWeights1B1sB[NOSYST]=bWeight1 * bWeight1_subj;
-	systWeights1B1sB[BTAGUP]=bWeight1BTagUp * bWeight1_subj;
-	systWeights1B1sB[BTAGDOWN]=bWeight1BTagDown * bWeight1_subj;
+	systWeights1B1sB[BTAGUP]=bWeight1BTagUp * bWeight1BTagUp_subj;
+	systWeights1B1sB[BTAGDOWN]=bWeight1BTagDown * bWeight1BTagDown_subj;
 	systWeights1B1sB[MISTAGUP]=bWeight1MisTagUp * bWeight1_subj;
 	systWeights1B1sB[MISTAGDOWN]=bWeight1MisTagDown * bWeight1_subj;
 
@@ -971,8 +927,6 @@ int main(int argc, char **argv) {
 	syst1B0sB.setWeight("mistagDown",bWeight1MisTagDown * 1);
 	syst1B0sB.setWeight("puUp",bWeight1 * 1 * puUpFact);
 	syst1B0sB.setWeight("puDown",bWeight1 * 1 * puDownFact);
-	syst1B0sB.setWeight("btagHiggsUp", 1 * bWeight1);
-	syst1B0sB.setWeight("btagHiggsDown", 1 * bWeight1);
 	syst1B0sB.setWeight("mistagHiggsUp", 1 * bWeight1);
 	syst1B0sB.setWeight("mistagHiggsDown", 1 * bWeight1);
 	
@@ -992,8 +946,6 @@ int main(int argc, char **argv) {
 	
 	systWeights1B0sB[PUUP]= puUpFact * bWeight1 * 1;
 	systWeights1B0sB[PUDOWN]= puDownFact * bWeight1 * 1;
-	systWeights1B0sB[BTAGHIGGSUP]= 1 * bWeight1;
-	systWeights1B0sB[BTAGHIGGSDOWN]= 1 * bWeight1;
 	systWeights1B0sB[MISTAGHIGGSUP]= 1 * bWeight1;
 	systWeights1B0sB[MISTAGHIGGSDOWN]= 1 * bWeight1;
 	systWeights1B0sB[NOSYST]=bWeight1 * 1;
@@ -1043,6 +995,7 @@ int main(int argc, char **argv) {
         systWeights2B0sB[MISTAGUP]=bWeight2MisTagUp * 1;
         systWeights2B0sB[MISTAGDOWN]=bWeight2MisTagDown * 1;
 	*/
+	
 	syst0B0sB.copySysts(systZero);
 	syst0B0sB.setWeight(0, 1 * 1);
 	syst0B0sB.setWeight("btagUp", 1 * 1);
@@ -1051,8 +1004,6 @@ int main(int argc, char **argv) {
 	syst0B0sB.setWeight("mistagDown",  1 * 1);
 	syst0B0sB.setWeight("puUp",puUpFact *  1 * 1 );
 	syst0B0sB.setWeight("puDown",puDownFact  * 1 * 1);
-	syst0B0sB.setWeight("btagHiggsUp", 1 * 1);
-	syst0B0sB.setWeight("btagHiggsDown",  1 * 1);
 	syst0B0sB.setWeight("mistagHiggsUp",  1 * 1);
 	syst0B0sB.setWeight("mistagHiggsDown",  1 * 1);
 	
@@ -1072,8 +1023,6 @@ int main(int argc, char **argv) {
 	
 	systWeights0B0sB[PUUP]= puUpFact * 1 * 1;
 	systWeights0B0sB[PUDOWN]=puDownFact * 1 * 1;
-	systWeights0B0sB[BTAGHIGGSUP]= 1 * 1;
-	systWeights0B0sB[BTAGHIGGSDOWN]=  1 * 1;
 	systWeights0B0sB[MISTAGHIGGSUP]=  1 * 1;
 	systWeights0B0sB[MISTAGHIGGSDOWN]=  1 * 1;
 	systWeights0B0sB[NOSYST]=  1 * 1;
@@ -1082,17 +1031,7 @@ int main(int argc, char **argv) {
 	systWeights0B0sB[MISTAGUP]=  1 * 1;
 	systWeights0B0sB[MISTAGDOWN]=  1 * 1;
       }
-      
-      /*systWeightsNoSyst[PUUP]=1.0;
-      systWeightsNoSyst[PUDOWN]=1.0;
-      systWeightsNoSyst[BTAGHIGGSUP]=1.0;
-      systWeightsNoSyst[BTAGHIGGSDOWN]=1.0;
-      systWeightsNoSyst[NOSYST]=1.0;
-      systWeightsNoSyst[BTAGUP]=1.0;
-      systWeightsNoSyst[BTAGDOWN]=1.0;
-      systWeightsNoSyst[MISTAGUP]=1.0;
-      systWeightsNoSyst[MISTAGDOWN]=1.0;*/
-      
+     
       std::vector<TLorentzVector> jets, bjets, fwjets, fatjets;
       struct btag{
 	TLorentzVector vect;
@@ -1113,7 +1052,6 @@ int main(int argc, char **argv) {
       int maxJetLoop = min(15, jetSize);
       int maxFatJetLoop = min(10, fatjetSize);
        
-      //std::string samplestr(sample.c_str());
       syst0B0sB.fillHistogramsSysts(h_weight10, w_pdfs[23]/w_zero, 1, systWeights0B0sB);
       syst0B0sB.fillHistogramsSysts(h_weight50, w_pdfs[45]/w_zero, 1, systWeights0B0sB);
 
@@ -1125,7 +1063,7 @@ int main(int argc, char **argv) {
 	if(Ht>1250){ // HT requirement
 	//if(1>0){
 	n_ht+=w;
-	  //cout << w << endl;
+	
 	  //forward jet category
 	  int countfwjets=0, countcjets=0, countbjets=0;
 	  for (int j = 0; j <maxJetLoop;++j){
@@ -1190,13 +1128,8 @@ int main(int argc, char **argv) {
 
 	    if(countjets>2){
 	      n_jet+=w;
-	      //if( (isData=="DATA" && ((samplestr).find("SingleMuh") != std::string::npos) && (passTrigHT900 >0.))) cout << "PFHT900 passes" << endl;
-	      //if( (isData=="DATA" && ((samplestr).find("SingleMuh") != std::string::npos) && (passTrigPFJet450 >0.))) cout <<"PFJet450 passes" << endl;
-	      //syst0B0sB.fillHistogramsSysts(h_Ht_bef,Ht,w,systWeights0B0sB);
 	      
-	      //if( (isData=="DATA" && ((samplestr).find("SingleMuh") != std::string::npos) && (passTrigHT900 >0. || passTrigPFJet450>0.)) || (isData=="DATA" && !((samplestr).find("SingleMuh") != std::string::npos) && (passTrigHT900>0.)) || (isData=="MC" && passTrigHT900>0.)){
-	      //	syst0B0sB.fillHistogramsSysts(h_Ht_trigaft,Ht,w,systWeights0B0sB);
-	      //	}
+	      //syst0B0sB.fillHistogramsSysts(h_Ht_bef,Ht,w,systWeights0B0sB);
 	      
 	      if(countb>0){
 		n_bjet+=w;
@@ -1209,9 +1142,7 @@ int main(int argc, char **argv) {
 		
 		//syst1B0sB.fillHistogramsSysts(h_Ht,Ht,w.,systWeights1B0sB);
 		syst1B0sB.fillHistogramsSysts(h_Ht_trigaft,Ht,1.,systWeights1B0sB);
-		//syst1B0sB.fillHistogramsSysts(h_nPV,nGoodPV,1.,systWeights1B0sB);
-		//syst1B0sB.fillHistogramsSysts(h_nPV_w,nGoodPV,w,systWeights1B0sB);
-
+		
 		syst1B0sB.fillHistogramsSysts(h_AK4jetptlead,jetptcorr[0],w,systWeights1B0sB);
 		syst1B0sB.fillHistogramsSysts(h_AK4jetetalead,jeteta[0],w,systWeights1B0sB);
 		syst1B0sB.fillHistogramsSysts(h_AK4jetphilead,jetphi[0],w,systWeights1B0sB);
@@ -1433,7 +1364,6 @@ int main(int argc, char **argv) {
 		      antiHiggs_B.nsubjets = antiHiggsCand_B[j].nsubjets;
 		      bCand.clear();
 		      for(size_t b=0; b<bjets.size(); b++){
-			//bjets[b].SetPtEtaPhiE(jetptcorr[b], jeteta[b], jetphi[b], jete[b]);
 			if((antiHiggs_B.vect).DeltaR(bjets[b])>1.2){
 			  bSel.vect = bjets[b];
 			  bSel.deltar = (antiHiggs_B.vect).DeltaR(bjets[b]);
@@ -1908,8 +1838,6 @@ void systWeights::prepareDefault(bool addDefault, bool addQ2, bool addPDF, bool 
     this->weightedNames[4]="mistagDown";
     this->weightedNames[5]="puUp";
     this->weightedNames[6]="puDown";
-    this->weightedNames[7]="btagHiggsUp";
-    this->weightedNames[8]="btagHiggsDown";
     this->weightedNames[9]="mistagHiggsUp";
     this->weightedNames[10]="mistagHiggsDown";
     //this->weightedNames[11]="trigUp";
@@ -2366,8 +2294,6 @@ TString  weightedSystsNames (weightedSysts sy){
   case MISTAGDOWN : return "mistagDown";
   case PUUP : return "puUp";
   case PUDOWN : return "puDown";
-  case BTAGHIGGSUP : return "btagHiggsUp";
-  case BTAGHIGGSDOWN : return "btagHiggsDown";
   case MISTAGHIGGSUP : return "mistagtagHiggsUp";
   case MISTAGHIGGSDOWN : return "mistagHiggsDown";
   case MAXSYSTS : return "";
