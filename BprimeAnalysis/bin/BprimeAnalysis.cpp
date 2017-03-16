@@ -42,6 +42,7 @@ typedef vector<int> vint;
 typedef vector<bool> vbool;
 typedef vector<string> vstring;
 
+
 enum weightedSysts { NOSYST=0, BTAGUP = 1,BTAGDOWN=2, MISTAGUP=3,MISTAGDOWN=4, PUUP=5, PUDOWN=6, MISTAGHIGGSUP=7, MISTAGHIGGSDOWN=8, MAXSYSTS=9};
 enum theoSysts {SCALEUP=101,SCALEDOWN=102, NNPDF1=100, NNPDF2=102};
 int wLimit =150;
@@ -289,19 +290,16 @@ int main(int argc, char **argv) {
   chain.SetBranchAddress("jetsAK8CHS_isType1", fatjetistype1);
   chain.SetBranchAddress("jetsAK8CHS_tau3OVERtau2", fatjettau3OVERtau2);
 
-  //chain.SetBranchAddress("Event_passesHLT_PFHT900", &passTrigHT900);
   chain.SetBranchAddress("Event_passesHadronPFHT900Triggers", &passTrigHT900);
   chain.SetBranchAddress("Event_passesSingleMuTriggers", &passTrigSingleMu);
-  //chain.SetBranchAddress("Event_passesHLT_PFHT800", &passTrigHT800);
   chain.SetBranchAddress("Event_passesHadronPFHT800Triggers", &passTrigHT800);
-  //chain.SetBranchAddress("Event_passesHLT_PFJet450", &passTrigPFJet450);
   chain.SetBranchAddress("Event_passesHadronPFJet450Triggers", &passTrigPFJet450);
   
-  Int_t HBHENoiseFilter, HBHENoiseIsoFilter, EcalDeadCellTriggerPrimitive, globalTightHalo2016Filter, BadChargedCandidateFilter, BadPFMuonFilter;
-  Float_t METFilters, goodVertices;
+  float HBHENoiseFilter(0.), HBHENoiseIsoFilter(0.), EcalDeadCellTriggerPrimitive(0.), globalTightHalo2016Filter(0.), BadChargedCandidateFilter(0.), BadPFMuonFilter(0.);
+  float METFilters(0.), goodVertices(0.);
   chain.SetBranchAddress("Event_passesFlag_HBHENoiseFilter", &HBHENoiseFilter);
   chain.SetBranchAddress("Event_passesFlag_HBHENoiseIsoFilter", &HBHENoiseIsoFilter);
-  chain.SetBranchAddress("Event_passesFlag_EcalDeadCellTriggerPrimitive", &EcalDeadCellTriggerPrimitive);
+  chain.SetBranchAddress("Event_passesFlag_EcalDeadCellTriggerPrimitiveFilter", &EcalDeadCellTriggerPrimitive);
   chain.SetBranchAddress("Event_passesFlag_goodVertices", &goodVertices);
   chain.SetBranchAddress("Event_passesFlag_globalTightHalo2016Filter", &globalTightHalo2016Filter);
   chain.SetBranchAddress("Event_passesMETFilters", &METFilters);
@@ -639,7 +637,9 @@ int main(int argc, char **argv) {
  
   for(Int_t i=0; i<nEventsPrePres; i++ )
     {
-      if((METFilters && BadChargedCandidateFilter && BadPFMuonFilter)>0){
+      //cout << METFilters <<" " << BadChargedCandidateFilter << " " << BadPFMuonFilter << endl;
+      if((METFilters * BadChargedCandidateFilter * BadPFMuonFilter)>0){
+
       if(i%100000==1 ){
 	cout<<"Running on event: "<<i<<endl; 
       }
