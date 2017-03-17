@@ -350,19 +350,8 @@ for var,(title,scale,rebin, usrrng) in settings.iteritems():
 
         ### Re-range
         if usrrng is not None:
-
-            # Don't chop by default
-            if len(usrrng) == 2:
-                # Don't chop if the third parameter is omitted
-                pass
-            elif len(usrrng) == 3 and usrrng[2]:
-                uFirst, uLast = usrrng[0], usrrng[1]
-                
-                # Pull out the histogram
-                #hx = h.GetHisto()
-
-                h.Shrink(uFirst, uLast)
-                
+             uFirst, uLast = usrrng[0], usrrng[1]
+             h.Shrink(uFirst, uLast)
       
         ### Set style and create stack plots
         h.SetStyle(s.color, s.style, s.fill)
