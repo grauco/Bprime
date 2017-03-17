@@ -199,7 +199,7 @@ int main(int argc, char **argv) {
   TChain chain(treePath);
   chain.AddFileInfoList(fc.GetList());
   Int_t nEventsPrePres = (Int_t)chain.GetEntries();
-  //nEventsPrePres=3000;
+  //nEventsPrePres=50000;
   std::cout<<"--> --> Number of Events: "<<nEvents<< " after preselection "<< nEventsPrePres << endl;
   bench.Stop("NEventsPrePres");
   bench.Print("NEventsPrePres");
@@ -234,6 +234,8 @@ int main(int argc, char **argv) {
 	  }
     }
   }
+
+  float HBHENoiseFilter(0), HBHENoiseIsoFilter(0), EcalDeadCellTriggerPrimitive(0), globalTightHalo2016Filter(0), BadChargedCandidateFilter(0), BadPFMuonFilter(0), METFilters(0), goodVertices(0);
 
   int sizeMax=50;
   Int_t jetSize, fatjetSize;
@@ -294,9 +296,7 @@ int main(int argc, char **argv) {
   chain.SetBranchAddress("Event_passesSingleMuTriggers", &passTrigSingleMu);
   chain.SetBranchAddress("Event_passesHadronPFHT800Triggers", &passTrigHT800);
   chain.SetBranchAddress("Event_passesHadronPFJet450Triggers", &passTrigPFJet450);
-  
-  float HBHENoiseFilter(0.), HBHENoiseIsoFilter(0.), EcalDeadCellTriggerPrimitive(0.), globalTightHalo2016Filter(0.), BadChargedCandidateFilter(0.), BadPFMuonFilter(0.);
-  float METFilters(0.), goodVertices(0.);
+
   chain.SetBranchAddress("Event_passesFlag_HBHENoiseFilter", &HBHENoiseFilter);
   chain.SetBranchAddress("Event_passesFlag_HBHENoiseIsoFilter", &HBHENoiseIsoFilter);
   chain.SetBranchAddress("Event_passesFlag_EcalDeadCellTriggerPrimitiveFilter", &EcalDeadCellTriggerPrimitive);
@@ -633,19 +633,18 @@ int main(int argc, char **argv) {
   float kfact(1.);
   float kfact_qcd(1.),  kfact_ewk(1.);
   float kfact_qcdrenUp(1.), kfact_qcdrenDown(1.), kfact_qcdfacUp(1.), kfact_qcdfacDown(1.), kfact_ewkUp(1.) ,kfact_ewkDown(1.);
-  //nEventsPrePres=10000;
- 
+   
   for(Int_t i=0; i<nEventsPrePres; i++ )
     {
-      //cout << METFilters <<" " << BadChargedCandidateFilter << " " << BadPFMuonFilter << endl;
+      chain.GetEntry(i);
+      
       if((METFilters * BadChargedCandidateFilter * BadPFMuonFilter)>0){
 
       if(i%100000==1 ){
 	cout<<"Running on event: "<<i<<endl; 
       }
       w = LHEWeightSign[0];
-      chain.GetEntry(i);
-      
+
       if( !strncmp(sample.c_str(), Wlabel , strlen(Wlabel))) {
         kfact_qcd = wQCD.getkFact(WPt);
         kfact_ewk = wEWK.getkFact(WPt);
@@ -1737,8 +1736,7 @@ int main(int argc, char **argv) {
   std::cout<< "Events after 3 ak4 jets    : "<<n_jet<<std::endl;
   std::cout<< "Events after 1 higgs jet   : "<<n_Bosonjets<<std::endl;
   std::cout<< "Events after 1 b jet       : "<<n_bjets<<std::endl;
-  //  std::cout<< "Events after Ht cut        : "<<n_ht<<std::endl;
-
+  
   std::cout<< "****************************** "<<std::endl;
   std::cout<< "* Final yields in SR and CRs * "<<std::endl;
   std::cout<< "****************************** "<<std::endl;
@@ -1747,9 +1745,10 @@ int main(int argc, char **argv) {
   std::cout<< "Events in region B        : "<<nB<<std::endl;
   std::cout<< "Events in region C        : "<<nC<<std::endl;
   std::cout<< "Events in region D        : "<<nD<<std::endl;
-  
-  //  std::cout<< "Contamination in Closure Region: " << (float)n_closure/nA << std::endl;
-  
+ 
+
+
+     
 }//end of main
 
 TH1F * initproduct(TH1F * hA,TH1F* hB, int rebinA = 1, int rebinB=1,double integral = -1.){
